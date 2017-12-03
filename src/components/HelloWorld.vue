@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    center
+    <a href="/hr" target="_blank">hr</a>
+    <br/>
+    <a href="/task" target="_blank">task</a>
+    <br/>
+    <a href="/link" target="_blank">link</a>
   </div>
 </template>
 
