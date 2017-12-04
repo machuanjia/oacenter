@@ -1,12 +1,27 @@
 <template>
   <div id="register">
-    register
+    <Button type="primary" @click="postFn()">Primary</Button>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
-    name: 'register'
+    name: 'register',
+    methods: {
+      postFn() {
+        axios.post('http://localhost:3000/users/login', {name: 'macj'})
+          .then((res) => {
+            debugger
+          })
+          .catch((err) => {
+            if (err) {
+              console.log(err)
+            }
+          })
+      }
+    }
   }
 </script>
 
