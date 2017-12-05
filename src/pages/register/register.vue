@@ -6,14 +6,15 @@
 
 <script>
   import axios from 'axios'
+  import qs from 'qs'
 
   export default {
     name: 'register',
     methods: {
       postFn() {
-        axios.post('http://localhost:3000/users/login', {name: 'macj'})
+        axios.post('http://localhost:3000/users/login', qs.stringify({ 'name': 123 }))
           .then((res) => {
-            debugger
+            console.log(res)
           })
           .catch((err) => {
             if (err) {
