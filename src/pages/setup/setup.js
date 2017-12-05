@@ -1,8 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import router from './router/index'
+import Setup from './setup.vue'
 import i18n from 'i18n'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
@@ -12,10 +11,9 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App },
+  el: '#setup',
+  template: '<Setup/>',
+  components: { Setup },
   i18n,
   beforeCreate: function () {
     this.$i18n.locale = 'en-us'

@@ -43,21 +43,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true,
-      chunks:['app']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'register.html',
-      template: './src/pages/register/register.html',
-      inject: true,
-      chunks:['register']
-    }),
-  ]
+    new webpack.NoEmitOnErrorsPlugin()
+  ].concat(utils.htmlPlugin())
 })
 
 module.exports = new Promise((resolve, reject) => {

@@ -21,10 +21,7 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js',
-    register:'./src/pages/register/register.js'
-  },
+  entry: utils.entries(),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -38,7 +35,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'i18n':resolve('src/i18n'),
-      'api':resolve('src/api')
+      'api':resolve('src/api'),
+      'router':resolve('src/router')
     }
   },
   module: {

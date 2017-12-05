@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="assets/logo.png">
+    <img src="../../assets/logo.png">
     <router-view/>
   </div>
 </template>
@@ -13,5 +13,5 @@ export default {
 
 <style lang="scss">
   // Import Main styles for this application
-  @import "../scss/style";
+  @import "../../../scss/style";
 </style>
