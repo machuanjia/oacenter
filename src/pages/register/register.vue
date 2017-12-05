@@ -1,5 +1,5 @@
 <template>
-  <div id="register">
+  <div>
     <Button type="primary" @click="postFn()">Primary</Button>
   </div>
 </template>
