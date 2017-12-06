@@ -25,5 +25,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'eol-last': 0,
     'space-before-function-paren': 0
+    //"semi": [2, "always"],//语句强制分号结尾
   }
 }
