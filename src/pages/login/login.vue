@@ -9,6 +9,9 @@
       <FormItem label="phone" prop="phone" v-if="isDomain">
         <Input type="text" v-model="formCustom.phone"></Input>
       </FormItem>
+      <FormItem label="pass" prop="pass" v-if="isDomain">
+        <Input type="text" v-model="formCustom.pass"></Input>
+      </FormItem>
 
       <FormItem v-if="!isDomain">
         <Button type="primary" @click="handleStep()">下一步</Button>
@@ -41,11 +44,19 @@
           callback()
         }
       }
+      const validatePass = () =>{
+        if (value === '') {
+          callback(new Error('Please enter your pass'))
+        } else {
+          callback()
+        }
+      }
       return {
-        isDomain:false,
+        isDomain: false,
         formCustom: {
           domain: '',
-          phone:''
+          phone: '',
+          pass:''
         },
         ruleCustom: {
           domain: [{
@@ -53,6 +64,9 @@
           }],
           phone: [{
             validator: validatePhone, trigger: 'blur'
+          }],
+          pass: [{
+            validator: validatePass, trigger: 'blur'
           }]
         }
       }
@@ -64,7 +78,6 @@
             axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
               .then((res) => {
                 console.log(res)
-//                this.$Message.success('Success!')
                 window.location = '/'
               })
               .catch((err) => {
@@ -79,7 +92,7 @@
         })
       },
       handleStep() {
-        this.isDomain = true;
+        this.isDomain = true
       }
     }
   }
