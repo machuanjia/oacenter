@@ -31,6 +31,7 @@
 <script>
   import axios from 'axios'
   import qs from 'qs'
+  import api from 'api'
 
   export default {
     data() {
@@ -87,17 +88,26 @@
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {
-            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
-              .then((res) => {
-                console.log(res)
-//                this.$Message.success('Success!')
-                window.location = 'setup.html'
-              })
-              .catch((err) => {
+              api.register.sendSms({phone:this.formCustom.phone}).then((res)=>{
+                  console.log(res)
+              }).catch((err)=>{
                 if (err) {
                   console.log(err)
                 }
-              })
+              });
+
+
+//            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
+//              .then((res) => {
+//                console.log(res)
+////                this.$Message.success('Success!')
+//                window.location = 'setup.html'
+//              })
+//              .catch((err) => {
+//                if (err) {
+//                  console.log(err)
+//                }
+//              })
           } else {
             this.$Message.error('Fail!')
           }

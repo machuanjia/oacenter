@@ -36,7 +36,8 @@ module.exports = {
       '@': resolve('src'),
       'i18n':resolve('src/i18n'),
       'api':resolve('src/api'),
-      'router':resolve('src/router')
+      'router':resolve('src/router'),
+      'common':resolve('src/common')
     }
   },
   module: {
