@@ -15,6 +15,9 @@
       <FormItem label="手机" prop="phone">
         <Input type="input" v-model="formCustom.phone"></Input>
       </FormItem>
+      <FormItem>
+        <Button type="primary" @click="handleSms()">发送验证码</Button>
+      </FormItem>
       <FormItem label="验证码" prop="phoneCheck">
         <Input type="input" v-model="formCustom.phoneCheck"></Input>
       </FormItem>
@@ -39,9 +42,6 @@
         if (value === '') {
           callback(new Error('Please enter your phone'))
         } else {
-          if (this.formCustom.phoneCheck !== '') {
-            this.$refs.formCustom.validateField('phoneCheck')
-          }
           callback()
         }
       }
@@ -85,17 +85,31 @@
       }
     },
     methods: {
+      handleSms(){
+        this.$refs.formCustom.validateField('phone',function(err){
+          if(!err){
+            api.register.sendSms({phone:this.formCustom.phone}).then((res)=>{
+              console.log(res)
+            }).catch((err)=>{
+              if (err) {
+                console.log(err)
+              }
+            });
+          }
+        })
+      },
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {
-              api.register.sendSms({phone:this.formCustom.phone}).then((res)=>{
-                  console.log(res)
-              }).catch((err)=>{
-                if (err) {
-                  console.log(err)
-                }
-              });
 
+            api.register.vailedSms({phone:this.formCustom.phone,token:'123456'}).then((res)=>{
+              console.log(res)
+              window.location = 'setup.html'
+            }).catch((err)=>{
+              if (err) {
+                console.log(err)
+              }
+            });
 
 //            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
 //              .then((res) => {
