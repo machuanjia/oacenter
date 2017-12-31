@@ -32,10 +32,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import qs from 'qs'
-  import api from 'api'
-
   export default {
     data() {
       const validatePhone = (rule, value, callback) => {
@@ -86,9 +82,9 @@
     },
     methods: {
       handleSms(){
-        this.$refs.formCustom.validateField('phone',function(err){
+        this.$refs.formCustom.validateField('phone',(err)=>{
           if(!err){
-            api.register.sendSms({phone:this.formCustom.phone}).then((res)=>{
+            this.$$api.register.sendSms({phone:this.formCustom.phone}).then((res)=>{
               console.log(res)
             }).catch((err)=>{
               if (err) {
@@ -101,8 +97,7 @@
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {
-
-            api.register.vailedSms({phone:this.formCustom.phone,token:'123456'}).then((res)=>{
+            this.$$api.register.vailedSms({phone:this.formCustom.phone,token:'123456'}).then((res)=>{
               console.log(res)
               window.location = 'setup.html'
             }).catch((err)=>{
@@ -110,18 +105,6 @@
                 console.log(err)
               }
             });
-
-//            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
-//              .then((res) => {
-//                console.log(res)
-////                this.$Message.success('Success!')
-//                window.location = 'setup.html'
-//              })
-//              .catch((err) => {
-//                if (err) {
-//                  console.log(err)
-//                }
-//              })
           } else {
             this.$Message.error('Fail!')
           }

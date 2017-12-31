@@ -37,7 +37,8 @@ module.exports = {
       'i18n':resolve('src/i18n'),
       'api':resolve('src/api'),
       'router':resolve('src/router'),
-      'common':resolve('src/common')
+      'common':resolve('src/common'),
+      'register':resolve('src/register')
     }
   },
   module: {

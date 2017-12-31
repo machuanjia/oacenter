@@ -1,13 +1,19 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Register from './register.vue'
 import i18n from 'i18n'
 import iView from 'iview'
+import 'register'
 import 'iview/dist/styles/iview.css'
+import bodyParser from 'body-parser'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.config.productionTip = false
 
 Vue.use(iView)
-Vue.config.productionTip = false
+Vue.use(bodyParser)
+Vue.use(VueAxios, axios)
+
 
 /* eslint-disable no-new */
 new Vue({
