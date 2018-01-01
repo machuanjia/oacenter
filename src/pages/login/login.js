@@ -4,10 +4,19 @@ import Vue from 'vue'
 import Register from './login.vue'
 import i18n from 'i18n'
 import iView from 'iview'
+import 'register'
 import 'iview/dist/styles/iview.css'
+import bodyParser from 'body-parser'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.config.productionTip = false
 
 Vue.use(iView)
-Vue.config.productionTip = false
+Vue.use(bodyParser)
+Vue.use(VueAxios, axios)
+Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({

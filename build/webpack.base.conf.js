@@ -38,7 +38,9 @@ module.exports = {
       'api':resolve('src/api'),
       'router':resolve('src/router'),
       'common':resolve('src/common'),
-      'register':resolve('src/register')
+      'register':resolve('src/register'),
+      'scss':resolve('scss'),
+      'components':resolve('src/components')
     }
   },
   module: {

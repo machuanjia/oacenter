@@ -5,10 +5,22 @@ import App from './index.vue'
 import router from 'router/index'
 import i18n from 'i18n'
 import iView from 'iview'
+// import 'scss/my-theme/index.scss'
+import 'register'
 import 'iview/dist/styles/iview.css'
+import bodyParser from 'body-parser'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import 'font-awesome/css/font-awesome.css'
+
+// import BootstrapVue from 'bootstrap-vue'
+
+Vue.config.productionTip = false
 
 Vue.use(iView)
-Vue.config.productionTip = false
+Vue.use(bodyParser)
+Vue.use(VueAxios, axios)
+// Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({

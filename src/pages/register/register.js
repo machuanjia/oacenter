@@ -7,13 +7,14 @@ import 'iview/dist/styles/iview.css'
 import bodyParser from 'body-parser'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.config.productionTip = false
 
 Vue.use(iView)
 Vue.use(bodyParser)
 Vue.use(VueAxios, axios)
-
+Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({
