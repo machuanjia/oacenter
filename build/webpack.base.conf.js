@@ -40,7 +40,8 @@ module.exports = {
       'common':resolve('src/common'),
       'register':resolve('src/register'),
       'scss':resolve('scss'),
-      'components':resolve('src/components')
+      'components':resolve('src/components'),
+      'views':resolve('src/views')
     }
   },
   module: {

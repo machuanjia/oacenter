@@ -7,6 +7,9 @@ html,body,#app,.layout{
 .layout{
   display: flex;
 }
+.layout-row{
+  flex-direction: row;
+}
 .aside{
   background: rgba(47,50,58,1);
   text-align: center;
@@ -45,8 +48,6 @@ html,body,#app,.layout{
 }
 
 .sub-aside{
-  background: url("/static/img/sub-aside/sub-aside.jpg") left top;
-  background-size: cover;
   .sub-aside-content{
     background: rgba(47,50,58,0.8);
     height: 100%;

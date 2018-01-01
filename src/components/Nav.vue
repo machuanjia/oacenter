@@ -1,12 +1,26 @@
 <template>
-  <ul class="nav">
-    <li v-for="item in navs">
+  <Sider class="aside" width="80">
+    <Layout>
+      <Header>
+        <div class="logo-wrap"><img class="logo" src="../assets/logo.png"/></div>
+      </Header>
+      <Content>
+        <ul class="nav">
+          <li v-for="item in navs">
 
-      <router-link :to="item.url" class="opacity">
-        <i :class="item.icon"></i>
-      </router-link>
-    </li>
-  </ul>
+            <router-link :to="item.url" class="opacity">
+              <i :class="item.icon"></i>
+            </router-link>
+          </li>
+        </ul>
+      </Content>
+      <Footer>
+        <div class="user-wrap opacity"><Icon type="person"></Icon></div>
+      </Footer>
+    </Layout>
+  </Sider>
+
+
 </template>
 <script>
   export default {
