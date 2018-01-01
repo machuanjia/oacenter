@@ -22,11 +22,6 @@
 <script>
   export default {
     name: 'DashboardToc',
-    data(){
-      return {
-        isCollapsed:false
-      }
-    },
     computed: {
       menuitemClasses() {
         return [

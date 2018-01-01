@@ -41,7 +41,8 @@ module.exports = {
       'register':resolve('src/register'),
       'scss':resolve('scss'),
       'components':resolve('src/components'),
-      'views':resolve('src/views')
+      'views':resolve('src/views'),
+      'store':resolve('src/store')
     }
   },
   module: {

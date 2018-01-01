@@ -12,6 +12,8 @@ import bodyParser from 'body-parser'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'font-awesome/css/font-awesome.css'
+import store from 'store'
+import VueLazyload from 'vue-lazyload'
 
 // import BootstrapVue from 'bootstrap-vue'
 
@@ -20,12 +22,14 @@ Vue.config.productionTip = false
 Vue.use(iView)
 Vue.use(bodyParser)
 Vue.use(VueAxios, axios)
+Vue.use(VueLazyload)
 // Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App },
   i18n,
