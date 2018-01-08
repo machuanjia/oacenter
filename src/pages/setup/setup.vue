@@ -35,9 +35,6 @@
 
 </template>
 <script>
-  import axios from 'axios'
-  import qs from 'qs'
-
   export default {
     data() {
       const validateName = (rule, value, callback) => {
@@ -115,17 +112,11 @@
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {
-            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
-              .then((res) => {
-                console.log(res)
-//                this.$Message.success('Success!')
-                window.location = '/'
-              })
-              .catch((err) => {
-                if (err) {
-                  console.log(err)
-                }
-              })
+            this.$$api.setup.submit(this.formCustom).then((rv)=>{
+              debugger
+            }).catch((err)=>{
+              debugger
+            });
 
           } else {
             this.$Message.error('Fail!')

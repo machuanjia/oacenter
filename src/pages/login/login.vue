@@ -75,16 +75,27 @@
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {
-            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
-              .then((res) => {
-                console.log(res)
-                window.location = '/'
-              })
-              .catch((err) => {
-                if (err) {
-                  console.log(err)
-                }
-              })
+
+            this.$$api.login.login({
+              name:this.formCustom.phone,
+              pwd:this.formCustom.pass
+            }).then((rv)=>{
+              console.log(rv);
+            }).catch((err)=>{
+            });
+
+
+
+//            axios.post('http://localhost:3000/users/login', qs.stringify(this.formCustom))
+//              .then((res) => {
+//                console.log(res)
+//                window.location = '/'
+//              })
+//              .catch((err) => {
+//                if (err) {
+//                  console.log(err)
+//                }
+//              })
 
           } else {
             this.$Message.error('Fail!')
